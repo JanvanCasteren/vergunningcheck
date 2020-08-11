@@ -38,6 +38,9 @@ const Questions = ({
   const activeStyle = { marginTop: -1, borderColor: "white" };
 
   const saveAnswer = (value) => {
+    // This makes sure when a question is changed that a possible visible Conclusion is removed
+    setFinishedState("questions", false);
+
     const question = checker.stack[questionIndex];
     // Provide the user answers to the `sttr-checker`
     if (question.options && value !== undefined) {
